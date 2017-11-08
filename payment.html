@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    ul,li{
+        list-style: none;
+    }
+    body{
+        width:100%;
+        height:100%;
+        background: #f5f6f8;
+    }
+    .header{
+        width:100%;
+        height:6rem;
+        background: url("image/topbg.png");
+        background-size:100% 100%;
+    }
+    .userimg{
+        padding-top:.5rem;
+        width:.8rem;
+        height:.8rem;
+        margin:0 auto;
+        border-radius:1rem;
+        overflow: hidden;
+    }
+    .userimg img{
+        width:100%;
+        float:left;
+        border-radius:100%;
+        height:100%;
+    }
+    .username{
+        width:90%;
+        height:.6rem;
+        overflow: hidden;
+        color:#333333;
+        margin-left:5%;
+        margin-top:.3rem;
+        font-size:.3rem;
+        line-height:.6rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .inputbox{
+        width:90%;
+        margin-left:5%;
+        height:1rem;
+        margin-top:.5rem;
+        border-radius:.15rem;
+        border:1px solid #1e9c9c;
+    }
+    .inputbox p{
+        width:35%;
+        float:left;
+        display: inline-block;
+        height:100%;
+        line-height: 1rem;
+        font-size:.20rem;
+        color:#aaaaaa;
+        text-indent:1.5em;
+    }
+    .t_line{
+        display: inline-block;
+        height:.6rem;
+        border:1px solid black;
+        float:right;
+        margin-right:2%;
+        margin-top:.2rem;
+        -webkit-animation::line 1.5s infinite;
+        -o-animation::line 1.5s infinite;
+        animation:line 1.5s infinite;
+    }
+    .money{
+        float:right;
+        width:62%;
+        height:100%;
+        text-align: right;
+     }
+    .symbol{
+        font-size:.40rem;
+        display: inline-block;
+        margin-top:.20rem;
+        float:right;
+    }
+    .m_number{
+        float:right;
+        max-width:82%;
+        overflow: hidden;
+        height:100%;
+        line-height: 1rem;
+        white-space: nowrap;
+        font-size:.50rem;
+    }
+    @keyframes line {
+        0% { opacity: 1; }
+        25% { opacity: .75; }
+        50% { opacity: .5; }
+        75% { opacity: .25; }
+        100% { opacity: .1; }
+    }
+    .balance{
+        width:80%;
+        margin-left:10%;
+        margin-top:.4rem;
+        height:.5rem;
+    }
+    .balance .check_box{
+        float:left;
+        width:.23rem;
+        height:.23rem;
+    }
+    .balance .check_box img{
+        width:100%;
+        height:100%;
+        float:left;
+    }
+    .balance span{
+        font-size:.20rem;
+        margin-left:.1rem;
+        margin-top:.05rem;
+        color:#546893;
+        line-height: 1em;
+        display: inline-block;
+        float:left;
+    }
+    .footer{
+        width:100%;
+        position: fixed;
+        float:left;
+        bottom:0;
+        height:5.4rem;
+        left:0;
+    }
+
+    .footer{
+        position: fixed;
+        bottom:0;
+        background: white;
+        left:0;
+        width:100%;
+
+
+        height:5.5rem;
+    }
+    .footer .footer_msg{
+        width:100%;
+        height:1.5rem;
+        float:left;
+        /*background: url("image/pay_ment.png");*/
+        /*background-size:100% 100%;*/
+        background: #f5f6f8;
+    }
+    .footer .footer_msg img{
+        width:100%;
+        height:100%;
+        float:left;
+    }
+    .footer .key-number{
+        width:75%;
+        float:left;
+    }
+    .footer .key-number .keyborder-key{
+        width:32.9%;
+        height:1rem;
+        font-size:.5rem;
+        text-align:center;
+        border-right:1px solid #ccc;
+        border-top:1px solid #ccc;
+        line-height: 1rem;
+        float:left;
+    }
+    .footer .key-number .border-key{
+        width:66.2%;
+        height:1rem;
+        font-size:.5rem;
+        text-align:left;
+        text-indent:1.2em;
+        border-top:1px solid #ccc;
+        border-right:1px solid #ccc;
+        line-height: 1rem;
+        float:left;
+    }
+    .footer .key-number .keyborder-key:last-child{
+        width:32.8%;
+    }
+    .key-right{
+        width:25%;
+        float:right;
+    }
+    .key-right .row{
+        width:100%;
+        height:1rem;
+        display: flex;
+        border-top:1px solid #ccc;
+    }
+    .key-right .row .keyborder-key{
+        width:100%;
+        height:100%;
+        line-height: 1rem;
+        text-align: center;
+    }
+    .key-right .row img{
+        width:.8rem;
+        height:.8rem;
+        /*margin-top:.rem;*/
+    }
+    .key-right .row-key{
+        width:100%;
+        height:3rem;
+        font-size:.3rem;
+        color:white;
+        text-align:center;
+        background: #1fc055;
+    }
+    .key-right .row-key p{
+        padding-top:1rem;
+    }
+    .pointer-key{
+        border-top:1px solid #ccc;
+        border-right:1px solid #ccc;
+        border-bottom:none;
+        height:1rem;
+        font-size:.8rem;
+        line-height:.7rem;
+        float:left;
+        width:32.7%;
+        text-align: center;
+    }
+</style>
+<body>
+<div class="header">
+    <div class="userimg">
+        <img src="https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=2536120274,1522155207&fm=85&s=3EF26F854032B18EC4BD55320300C083" alt="">
+    </div>
+    <div class="username">
+        福建省的空间发肯定是更健康了多少架构了肯定发就赶快来辅导机构开了房第几个快乐发达国家凉快发达国家凉快
+    </div>
+    <div class="inputbox">
+        <p>输入消费金额</p>
+        <span class="t_line"></span>
+        <div class="money">
+            <span class="m_number"></span>
+            <span class="symbol">￥</span>
+        </div>
+    </div>
+    <div class="balance" onclick="changestate()">
+       <div class="check_box">
+           <img src="image/check-box.png" alt="" id="swith">
+       </div>
+        <span>使用余额支付（余额￥0元）</span>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer_msg">
+        <img src="image/pay_ment.png" alt="">
+    </div>
+    <div class="key-number">
+        <div class="row">
+            <div class="keyborder-key" onclick="return btnNum_onclick(1)" data-key="1">1</div>
+            <div class="keyborder-key" onclick="return btnNum_onclick(2)">2</div>
+            <div class="keyborder-key" onclick="return btnNum_onclick(3)">3</div>
+        </div>
+        <div class="row">
+            <div class="keyborder-key" onclick="return btnNum_onclick(4)">4</div>
+            <div class="keyborder-key" onclick="return btnNum_onclick(5)">5</div>
+            <div class="keyborder-key" onclick="return btnNum_onclick(6)">6</div>
+        </div>
+        <div class="row">
+            <div class="keyborder-key" onclick="return btnNum_onclick(7)">7</div>
+            <div class="keyborder-key" onclick="return btnNum_onclick(8)">8</div>
+            <div class="keyborder-key" onclick="return btnNum_onclick(9)">9</div>
+        </div>
+        <div class="row">
+            <div class="border-key" onclick="return zero()">0</div>
+            <div class="pointer-key" onclick="return pointer_onclick(10)">.</div>
+        </div>
+    </div>
+    <div class="key-right">
+        <div class="row">
+            <div class="keyborder-key" id="del" onclick="del()">
+                <img src="image/Icon-Deletekey.png" alt="">
+            </div>
+        </div>
+        <div class="row-key" id="pay">
+            <div class="keyborder-key">
+                <p>确认<br>支付</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="fastclick.js"></script>
+<script type="text/javascript">
+    new function (){
+        var _self = this;
+        _self.width = 640;//设置默认最大宽度
+        _self.fontSize = 100;//默认字体大小
+        _self.widthProportion = function(){
+            var p = (document.body&&
+                document.body.clientWidth ||
+                document.getElementsByTagName("html")[0].offsetWidth)/_self.width;
+            return p>1?1:p<0.5?0.5:p;
+        };
+        _self.changePage = function(){
+            document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+        }
+        _self.changePage();
+        window.addEventListener("resize",function(){_self.changePage();},false);
+    };
+</script>
+<script>
+    var pointer = document.getElementsByClassName("pointer-key")[0];
+    var key = document.getElementsByClassName("keyborder-key")[0];
+    var m_number = document.getElementsByClassName("m_number")[0];
+    /*
+     * 记住密码切换的问题
+     * */
+    function changestate(){
+        var swith = document.getElementById("swith");
+        var str = swith.src.match("image/check-box.png");
+        if(str){
+            swith.src="image/check_box.png"
+        }else{
+            swith.src="image/check-box.png"
+        }
+    }
+    /*
+     * 数字键盘
+     * */
+    function btnNum_onclick(i) {
+        m_number.innerHTML=m_number.innerHTML+i;
+        var str = m_number.innerHTML;
+        if (str.indexOf(".") < 0) {
+            m_number.innerHTML = m_number.innerHTML;
+        } else {
+            m_number.innerHTML = str.substring(0, str.indexOf(".") + 3);
+        }
+    }
+    /*
+    * 键盘0
+    * */
+    function zero(){
+        m_number.innerHTML=m_number.innerHTML+"0";
+    }
+    /*
+     * 小数点
+     * */
+    function pointer_onclick(){
+        var str = m_number.innerHTML.indexOf(".");
+        if(str<0){
+            m_number.innerHTML=m_number.innerHTML+pointer.innerHTML;
+        }else{
+            m_number.innerHTML=m_number.innerHTML+'';
+        }
+        var s = m_number.innerHTML;
+        if(s.indexOf(".")==0){
+            m_number.innerHTML='0'+pointer.innerHTML;
+        }
+    }
+    /*
+     * 删除
+     * */
+    function del(){
+       var str = m_number.innerHTML;
+        var delstr = str.substring(0,str.length-1);
+        m_number.innerHTML = delstr;
+    }
+    /*
+     * 点击速度更快
+     * */
+    window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+    }, false);
+
+</script>
+</html>

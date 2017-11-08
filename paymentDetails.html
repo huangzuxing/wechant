@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background: #e9e9ea;
+            width:100%;
+            height:100%;
+            overflow: hidden;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .container{
+            width:100%;
+            height:100%;
+            overflow: hidden;
+            float:left;
+        }
+        .header{
+            background: white;
+            width:100%;
+            height:.9rem;
+            float:left;
+            border-bottom:1px solid #e1e1e1;
+        }
+        .h_header{
+            width:96%;
+            float:left;
+            margin-left:2%;
+        }
+        .header .left{
+            width:.9rem;
+            height:.9rem;
+            float:left;
+        }
+        .header .left img{
+            width:.6rem;
+            height:.6rem;
+            float:left;
+            margin:.15rem;
+        }
+        .p_succeed{
+            width:80%;
+            float:left;
+            height:.9rem;
+        }
+        .p_succeed p{
+            font-size:.38rem;
+            line-height:.9rem;
+            color:#71c7cc;
+        }
+        .content{
+            width:100%;
+            margin-top:.25rem;
+            height:3.3rem;
+            float:left;
+            border-top:1px solid #e1e1e1;
+            border-bottom:1px solid #e1e1e1;
+            background: white;
+        }
+        .c_content{
+            width:96%;
+            margin-left:2%;
+        }
+        .content .usershop{
+            width:100%;
+            height:1rem;
+        }
+        .content .usershop p{
+            line-height: 1rem;
+            text-indent:.7em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space:nowrap;
+            color:#353535;
+            font-size:.34rem;
+        }
+        .bill_amount{
+            width:100%;
+            height:1rem;
+            margin-top:.2rem;
+            border-bottom:1px solid #e1e1e1;
+            float:left;
+        }
+        .bill_amount .b_left{
+            display:inline-block;
+            float:left;
+            width:25%;
+            line-height: .8rem;
+            color:#aaaaaa;
+            font-size:.26rem;
+            text-indent:1em;
+        }
+        .bill_amount .floor{
+            display: inline-block;
+            width:60%;
+            float:left;
+            height:100%;
+            font-size:.4rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight:600;
+            text-align: right;
+            padding-right:2%;
+            line-height: .8rem;
+        }
+        .bill_amount .b_right{
+            width:8%;
+            display: inline-block;
+            height:100%;
+            float:left;
+            font-weight:600;
+            line-height: .8rem;
+            text-align: left;
+            font-size:.4rem;
+        }
+        /*余额支付、微信支付*/
+        .f_floor{
+            width:100%;
+            height:.7rem;
+            float:left;
+            margin-top:.1rem;
+            font-size:.26rem;
+            color:#aaaaaa;
+        }
+        .f_floor .f_left{
+            width:49%;
+            float:left;
+            height:100%;
+        }
+        .f_floor .f_left .bill{
+            width:45%;
+            text-indent:1em;
+            line-height:1rem;
+            float:left;
+        }
+        .f_floor .f_left .b_number{
+            max-width:48%;
+            float:left;
+            line-height: 1rem;
+            height:100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space:nowrap;
+            text-align: right;
+        }
+        .f_floor .f_left .money{
+            width:5%;
+            text-align: left;
+            float:left;
+            line-height: 1rem;
+        }
+        .f_floor .f_right{
+            width:45%;
+            float:left;
+        }
+        .f_floor .f_right .bill{
+            width:45%;
+            text-indent:.5em;
+            line-height:1rem;
+            float:left;
+        }
+        .f_floor .f_right .b_number{
+            max-width:48%;
+            float:left;
+            line-height: 1rem;
+            height:100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space:nowrap;
+            text-align: right;
+        }
+        .f_floor .f_right .money{
+            width:5%;
+            text-align: left;
+            float:left;
+            line-height: 1rem;
+        }
+        /*账单列表*/
+        .footer{
+            width:100%;
+            float:left;
+            border-top:1px solid #e1e1e1;
+            position: fixed;
+            bottom:0;
+            margin-top:.2rem;
+            font-size:.26rem;
+            background: white;
+            color:#aaaaaa;
+        }
+        .f_footer{
+            width:96%;
+            margin-left:2%;
+        }
+        .footer .f_top{
+            width:100%;
+            /*padding-bottom:.5rem;*/
+            float:left;
+            background: url("image/footer-top.png") no-repeat;
+            background-size:100% 100%;
+            margin-top:.2rem;
+        }
+        .footer .f_top ul li{
+            width:100%;
+            height:.6rem;
+            float:left;
+        }
+        .footer .f_top ul li .left{
+            width:25%;
+            line-height: .6rem;
+            float:left;
+            height:100%;
+            text-indent:1em;
+        }
+        .footer .f_top ul li .sub_content{
+            width:50%;
+
+            float:left;
+            line-height: .6rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .footer .f_top ul li .copy{
+            width:12%;
+            color:white;
+            margin-left:.2rem;
+            line-height: .4rem;
+            margin-top:.15rem;
+            text-align: center;
+            font-size:.24rem;
+            border-radius: .05rem;
+            display: inline-block;
+            height:.4rem;
+            background: #3dacf1;
+        }
+        .footer .f_top ul li .right{
+            width:70%;
+            float:left;
+            height:100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: .6rem;
+        }
+        .footer .f_bottom{
+            width:100%;
+            float:left;
+            height:2.9rem;
+        }
+        .footer .f_bottom img{
+            width:100%;
+            height:100%;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="h_header">
+                <div class="left">
+                    <img src="image/Icon-Pay.png" alt="">
+                </div>
+                <div class="p_succeed">
+                    <p>支付成功</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="c_content">
+                <div class="usershop">
+                    <p>聚和付商铺</p>
+                </div>
+                <div class="bill_amount">
+                    <p class="b_left">
+                        消费金额
+                    </p>
+                    <p class="floor">
+                        88888.88
+                    </p>
+                    <p class="b_right">元</p>
+                </div>
+                <div class="f_floor">
+                    <div class="f_left">
+                        <p class="bill">余额支付</p>
+                        <p class="b_number">+800000000</p>
+                        <p class="money">元</p>
+                    </div>
+                    <div class="f_right">
+                        <p class="bill">微信支付</p>
+                        <p class="b_number">+80000000.888</p>
+                        <p class="money">元</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer">
+
+                <div class="f_top">
+                    <div class="f_footer">
+                        <ul>
+                            <li>
+                                <p class="left">订单编号</p>
+                                <p class="sub_content" id="number">555555555512123458789787897973336645645</p>
+                            </li>
+                            <li>
+                                <p class="left">交易方式</p>
+                                <p class="right">微信扫码</p>
+                            </li>
+                            <li>
+                                <p class="left">消费日期</p>
+                                <p class="right">2017-07-11 12:21:12</p>
+                            </li>
+                            <li>
+                                <p class="left">联系商户</p>
+                                <p class="right">18510954274</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="f_bottom">
+                    <img src="image/footer-bottom.png" alt="">
+                </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="fastclick.js"></script>
+<script type="text/javascript">
+    new function (){
+        var _self = this;
+        _self.width = 640;//设置默认最大宽度
+        _self.fontSize = 100;//默认字体大小
+        _self.widthProportion = function(){
+            var p = (document.body&&
+                document.body.clientWidth ||
+                document.getElementsByTagName("html")[0].offsetWidth)/_self.width;
+            return p>1?1:p<0.5?0.5:p;
+        };
+        _self.changePage = function(){
+            document.getElementsByTagName("html")[0].setAttribute("style","font-size:"+_self.widthProportion()*_self.fontSize+"px !important");
+        }
+        _self.changePage();
+        window.addEventListener("resize",function(){_self.changePage();},false);
+    };
+</script>
+</html>
